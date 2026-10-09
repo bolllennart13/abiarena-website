@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Einladung · Abi Arena</title>
+<meta name="description" content="Abi Arena: Foto-Challenges, Bestenliste und ein gemeinsames Album für eure Abi-Stufe.">
+<meta name="theme-color" content="#FF3D7F">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="kopf">
+  <a class="marke" href="/"><img src="/icon.png" alt="" width="36" height="36">Abi Arena</a>
+</header>
+<main class="einladung">
+<div id="einladung" hidden>
+  <div class="sticker" id="sticker">🎉</div>
+  <h1 id="ueberschrift">Du wurdest eingeladen!</h1>
+  <div class="raum" id="raum">
+    <b id="raumname">Raum wird geladen …</b>
+    <span id="mitglieder"></span>
+  </div>
+  <p>So bist du in einer Minute dabei:</p>
+  <ol class="schritte" id="schritte">
+    <li><b>Abi Arena laden</b><br><span class="hinweis-klein">Bald im App Store und bei Google Play</span></li>
+    <li><b>Diesen Code eingeben</b>
+      <button class="code" id="code" type="button" title="Code kopieren"></button>
+      <span class="hinweis-klein" id="kopiert">Antippen zum Kopieren</span>
+    </li>
+  </ol>
+  <a class="knopf" id="app-link" href="#">Schon installiert? In der App öffnen</a>
+</div>
+<div id="nicht-gefunden" hidden>
+  <div class="sticker">🤔</div>
+  <h1>Seite nicht gefunden</h1>
+  <p>Diese Seite gibt es nicht. <a href="/">Zur Startseite</a></p>
+</div>
+<script>
+(function () {
+  var treffer = location.pathname.match(/^\/j\/([A-Za-z0-9]{6})\/?$/);
+  if (!treffer) {
+    document.getElementById('nicht-gefunden').hidden = false;
+    return;
+  }
+  var code = treffer[1].toUpperCase();
+  document.title = 'Einladung · Abi Arena';
+  document.getElementById('einladung').hidden = false;
+  document.getElementById('code').textContent = code;
+  document.getElementById('app-link').href = 'abiarena://j/' + code;
+
+  document.getElementById('code').addEventListener('click', function () {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(code).then(function () {
+        document.getElementById('kopiert').textContent = 'Kopiert ✓';
+      });
+    }
+  });
+
+  // Raumname und Mitgliederzahl anzeigen (dieselbe Vorschau wie in der App).
+  fetch('https://nbryanypvhajaoouqvve.supabase.co/rest/v1/rpc/get_room_preview', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_5djde0HxudleXYWJ-by42Q_o9aPrFpZ' },
+    body: JSON.stringify({ p_code: code })
+  })
+    .then(function (antwort) { return antwort.json(); })
+    .then(function (daten) {
+      var name = document.getElementById('raumname');
+      var mitglieder = document.getElementById('mitglieder');
+      if (Array.isArray(daten) && daten.length) {
+        name.textContent = daten[0].room_name;
+        var n = daten[0].member_count;
+        mitglieder.textContent = '👥 ' + n + (n === 1 ? ' Mitglied' : ' Mitglieder');
+      } else if (daten && daten.message && daten.message.indexOf('too_many_attempts') >= 0) {
+        name.textContent = 'Kurz durchatmen';
+        mitglieder.textContent = 'Zu viele falsche Codes. Probier es in einer Stunde noch mal.';
+      } else {
+        name.textContent = 'Diese Einladung gibt es nicht (mehr)';
+        mitglieder.textContent = 'Vielleicht wurde der Code erneuert. Frag in deiner Stufe nach dem aktuellen Link.';
+        document.getElementById('raum').classList.add('fehler');
+        // Ohne gültigen Raum keine Anleitung zeigen, nur den Hinweis.
+        document.getElementById('sticker').textContent = '🤔';
+        document.getElementById('ueberschrift').textContent = 'Hm, das hat nicht geklappt';
+        document.getElementById('schritte').previousElementSibling.hidden = true;
+        document.getElementById('schritte').hidden = true;
+        document.getElementById('app-link').hidden = true;
+      }
+    })
+    .catch(function () {
+      document.getElementById('raumname').textContent = 'Euer Raum';
+    });
+})();
+</script>
+</main>
+<footer class="fuss">
+  <nav><a href="/support/">Support</a><a href="/nutzungsbedingungen/">Nutzungsbedingungen</a><a href="/datenschutz/">Datenschutz</a><a href="/impressum/">Impressum</a></nav>
+</footer>
+</body>
+</html>
