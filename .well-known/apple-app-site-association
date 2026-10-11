@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "K5YWNDMLN5.de.abiarena.app"
+        ],
+        "components": [
+          {
+            "/": "/j/*",
+            "comment": "Einladungslinks"
+          }
+        ]
+      }
+    ]
+  }
+}
