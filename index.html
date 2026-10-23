@@ -5,26 +5,178 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abi Arena</title>
 <meta name="description" content="Abi Arena: Foto-Challenges, Bestenliste und ein gemeinsames Album für eure Abi-Stufe.">
-<meta name="theme-color" content="#FF3D7F">
+<meta name="theme-color" content="#F6F1E7">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/icon.png">
 <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body class="breit">
 <header class="kopf">
   <a class="marke" href="/"><img src="/icon.png" alt="" width="36" height="36">Abi Arena</a>
+  <nav class="sprung"><a href="#so-gehts">So geht’s</a><a href="#funktionen">Funktionen</a><a href="#sicherheit">Sicherheit</a><a href="#fragen">Fragen</a></nav>
 </header>
 <main class="start">
-<img class="logo" src="/logo-sticker.png" alt="" width="200" height="200">
-<h1>Abi Arena</h1>
-<p class="untertitel">Euer Abi. Eure Challenges. Euer Album.</p>
-<div class="kacheln">
-  <div class="kachel" style="--farbe: var(--violett)"><span>📸</span><b>Foto-Challenges</b>Eure Admins starten Challenges, alle reichen ein Foto ein.</div>
-  <div class="kachel" style="--farbe: var(--tuerkis)"><span>🏆</span><b>Bestenliste</b>Punkte fürs Mitmachen, Bonus für die Highlights.</div>
-  <div class="kachel" style="--farbe: var(--orange)"><span>🖼️</span><b>Gemeinsames Album</b>Von der Mottowoche bis zum Abiball, alles an einem Ort.</div>
-</div>
-<p>Eine Stufe, ein Raum: Beitreten per Link, QR-Code oder Code. Bis 15 Leute kostenlos, für die ganze Stufe einmal freischalten. Kein Abo.</p>
-<p class="hinweis">Bald im App Store und bei Google Play</p>
+<section class="held">
+  <div class="held-text">
+    <span class="etikett gelb">für Abi 2027 kostenlos</span>
+    <h1>Euer Abi. Eure Challenges. Euer Album.</h1>
+    <p class="untertitel">Foto-Challenges mit Punkten, eine Bestenliste und ein gemeinsames Album für eure ganze Stufe. Von der Mottowoche bis zum Abiball.</p>
+    <div class="aktionen">
+      <span class="laden">Bald im App Store</span>
+      <a href="#so-gehts">So funktioniert’s</a>
+    </div>
+  </div>
+  <figure class="blitz" aria-label="Beispiel: ein Zufalls-Blitz in der App">
+    <div class="push">
+      <img src="/icon.png" alt="" width="40" height="40">
+      <div>
+        <div class="push-kopf"><span>Abi Arena</span><span>jetzt</span></div>
+        <b>Blitz! Nur 30 Minuten</b>
+        <span>Schatten-Pose. Schnell sein lohnt sich!</span>
+      </div>
+    </div>
+    <div class="blitz-karte">
+      <span class="etikett orange">Blitz! schnell sein</span>
+      <b class="blitz-titel">Schatten-Pose</b>
+      <div class="uhr" id="uhr">27:41</div>
+      <div class="leiste"><div id="leiste"></div></div>
+    </div>
+    <ol class="tempo" id="tempo">
+      <li class="an"><b>30</b>in den ersten 5 Min.</li>
+      <li><b>20</b>bis Min. 15</li>
+      <li><b>10</b>bis Min. 30</li>
+    </ol>
+    <figcaption>Jeden Tag startet zu einer zufälligen Uhrzeit ein Blitz. Alle haben 30 Minuten, und wer schneller ist, holt mehr Punkte.</figcaption>
+  </figure>
+</section>
+
+<section class="abschnitt" id="so-gehts">
+  <h2>So kommt eure Stufe rein<span class="punkt">.</span></h2>
+  <ol class="schritte-start">
+    <li><b>Raum anlegen</b>Jemand aus dem Abikomitee legt euren Raum an, zum Beispiel „Abi Goethe-Gymnasium 2027“, und ist damit Admin.</li>
+    <li><b>Stufe einladen</b>Alle kommen per Link, QR-Code oder 6-stelligem Code dazu. Ein Raum hat Platz für bis zu 250 Leute.</li>
+    <li><b>Loslegen</b>Admins starten Challenges aus Vorlagen oder mit eigenen Ideen. Der tägliche Zufalls-Blitz kommt automatisch dazu.</li>
+  </ol>
+</section>
+
+<section class="abschnitt" id="funktionen">
+  <h2>Das steckt drin<span class="punkt">.</span></h2>
+
+  <div class="funktion">
+    <div class="funktion-text">
+      <h3>Foto-Challenges</h3>
+      <p>Eure Admins starten Challenges wie „Bester Party-Moment“ oder „Haustier-Parade“, sofort oder geplant. Alle reichen ein Foto ein und bekommen Punkte fürs Mitmachen.</p>
+      <p>Ist eine Challenge vorbei, gibt es eine Siegerehrung: Die besten drei Fotos holen Bonuspunkte.</p>
+    </div>
+    <div class="ausschnitt challenges" aria-hidden="true">
+      <div class="ch"><span class="emo" style="background:#FFCF33">🎉</span><b>Bester Party-Moment</b><small>30 P. · noch 7 Tage</small><span class="etikett">+ Foto</span></div>
+      <div class="ch"><span class="emo" style="background:#CFE0FF">🐶</span><b>Haustier-Parade</b><small>20 P. · noch 8 Tage</small><span class="etikett gelb">dabei ✓</span></div>
+      <div class="ch"><span class="emo" style="background:#B9E6C9">📸</span><b>Stufenfoto mit 10 Leuten</b><small>50 P. · noch 5 Tage</small><span class="etikett">+ Foto</span></div>
+      <div class="ch"><span class="emo" style="background:#FFD0E0">🌅</span><b>Schönster Sonnenuntergang</b><small>30 P. · noch 2 Tage</small><span class="etikett gelb">dabei ✓</span></div>
+    </div>
+  </div>
+
+  <div class="funktion">
+    <div class="funktion-text">
+      <h3>Bestenliste</h3>
+      <p>Wer sammelt die meisten Punkte? Die Bestenliste zeigt die ganze Stufe, insgesamt und für diese Woche. Deinen eigenen Platz kannst du als Bild in deiner Story teilen.</p>
+    </div>
+    <div class="ausschnitt bestenliste" aria-hidden="true">
+      <div class="podest">
+        <div class="platz"><span class="av" style="background:#CFE0FF">B</span><b>Ben</b><span class="pille">#2 · 110</span></div>
+        <div class="platz erster"><span class="av" style="background:#FFCF33">J</span><b>Jule</b><span class="pille">#1 · 120</span></div>
+        <div class="platz"><span class="av" style="background:#B9E6C9">T</span><b>Tim</b><span class="pille">#3 · 110</span></div>
+      </div>
+      <div class="ich">
+        <div><b>#5 · Du</b><b>90 P.</b></div>
+        <div class="spur"><div></div></div>
+        <span>Noch 10 Punkte bis Platz 4. Ein Foto kann reichen!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="funktion">
+    <div class="funktion-text">
+      <h3>Gemeinsames Album</h3>
+      <p>Alle Fotos eurer Stufe landen an einem Ort, die Challenge-Fotos und alles andere. Jedes Mitglied kann Fotos hinzufügen und sich Lieblingsfotos aufs Handy speichern.</p>
+      <p>Dazu zählt ein Countdown die Tage bis zu eurem Abiball.</p>
+    </div>
+    <div class="ausschnitt album" aria-hidden="true">
+      <img src="/fotos/album-3.jpg" alt="" width="400" height="400" loading="lazy">
+      <img src="/fotos/sonnenuntergang-2.jpg" alt="" width="400" height="400" loading="lazy">
+      <img src="/fotos/haustiere-1.jpg" alt="" width="400" height="400" loading="lazy">
+      <img src="/fotos/wunderkerzen-1.jpg" alt="" width="400" height="400" loading="lazy">
+      <img src="/fotos/album-2.jpg" alt="" width="400" height="400" loading="lazy">
+      <img src="/fotos/essen-2.jpg" alt="" width="400" height="400" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt zwei" id="sicherheit">
+  <div>
+    <h2>Fürs Abikomitee<span class="punkt">.</span></h2>
+    <ul class="liste">
+      <li><b>Challenges planen.</b> Sofort starten oder für später ansetzen, aus Vorlagen oder mit eigenen Ideen.</li>
+      <li><b>Admins ernennen.</b> Wer den Raum anlegt, kann weitere Leute zu Admins machen.</li>
+      <li><b>Aufräumen.</b> Fotos löschen, Meldungen bearbeiten und Mitglieder entfernen.</li>
+      <li><b>Blitz steuern.</b> Der tägliche Zufalls-Blitz lässt sich ausschalten.</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Sicher und fair<span class="punkt">.</span></h2>
+    <ul class="liste">
+      <li><b>Nur für eure Stufe.</b> Fotos, Namen und Punkte sehen nur die Mitglieder eures Raums.</li>
+      <li><b>Melden und blockieren.</b> Gemeldete Fotos prüfen wir innerhalb von 24 Stunden. Wer auf einem Foto ist und das nicht möchte, kann es sofort ausblenden lassen.</li>
+      <li><b>Ab 16 Jahren.</b> Challenges ohne Lehrkräfte und ohne das Bewerten von Personen.</li>
+      <li><b>Keine Werbung, kein Tracking.</b> Eure Daten liegen auf Servern in Frankfurt und werden nicht verkauft.</li>
+      <li><b>Konto löschen.</b> Jederzeit direkt in der App, mit allen eigenen Fotos.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="preis">
+  <span class="etikett">versprochen</span>
+  <h2>Für Abi 2027 kostenlos.</h2>
+  <p>Euer Raum bleibt gratis bis nach eurem Abiball. Kein Abo, keine Werbung, keine versteckten Kosten.</p>
+</section>
+
+<section class="abschnitt" id="fragen">
+  <h2>Häufige Fragen<span class="punkt">.</span></h2>
+  <div class="fragen">
+    <details><summary>Wie trete ich dem Raum meiner Stufe bei?</summary><p>Über den Einladungslink, den QR-Code oder den 6-stelligen Code, den dir jemand aus deiner Stufe schickt. In der App findet ihn jedes Mitglied über den Raumnamen oben → „Stufe einladen“.</p></details>
+    <details><summary>Unser Raum ist voll. Was jetzt?</summary><p>Ein Raum hat Platz für bis zu 250 Leute. Braucht ihr mehr, schreibt uns an <a href="mailto:bolllennart13@gmail.com">bolllennart13@gmail.com</a> mit dem Namen eures Raums. Das kostet nichts.</p></details>
+    <details><summary>Wie werde ich Admin?</summary><p>Wer einen Raum erstellt, ist automatisch Admin. Admins können weitere Mitglieder zu Admins machen: Raumname oben → Mitglieder → Person antippen.</p></details>
+    <details><summary>Ich bin auf einem Foto und möchte das nicht.</summary><p>Tippe das Foto an und melde es mit „Ich bin auf diesem Foto und möchte das nicht“. Es wird sofort ausgeblendet. Ohne Konto schreib uns an <a href="mailto:bolllennart13@gmail.com">bolllennart13@gmail.com</a>, dann kümmern wir uns darum.</p></details>
+    <details><summary>Wie lösche ich mein Konto?</summary><p>In der App über das Zahnrad oben → Einstellungen → Konto löschen. Dabei werden dein Konto, dein Name und alle deine Fotos sofort und endgültig gelöscht.</p></details>
+    <details><summary>Was kostet Abi Arena?</summary><p>Für den Abi-Jahrgang 2027 nichts. Eure Räume bleiben gratis bis nach eurem Abiball, auch wenn spätere Jahrgänge einmal etwas zahlen sollten. Keine Werbung, kein Abo.</p></details>
+    <details><summary>Gibt es Abi Arena auch für Android?</summary><p>Zum Start gibt es Abi Arena für das iPhone. Eine Android-Version kommt später.</p></details>
+  </div>
+  <p>Noch etwas offen? Schreib uns an <a href="mailto:bolllennart13@gmail.com">bolllennart13@gmail.com</a>.</p>
+</section>
+
+<script>
+// Die Blitz-Uhr oben zählt wirklich herunter. Nach 30 Minuten fängt sie von vorn an.
+(function () {
+  var uhr = document.getElementById('uhr');
+  var leiste = document.getElementById('leiste');
+  var stufen = document.getElementById('tempo').children;
+  var rest = 27 * 60 + 41;
+  function zeigen() {
+    var min = Math.floor(rest / 60), sek = rest % 60;
+    uhr.textContent = (min < 10 ? '0' : '') + min + ':' + (sek < 10 ? '0' : '') + sek;
+    leiste.style.width = (rest / 1800) * 100 + '%';
+    // Tempo-Punkte: erstes Sechstel volle Punkte, bis zur Hälfte zwei Drittel, danach ein Drittel.
+    var vorbei = 1800 - rest;
+    var stufe = vorbei < 300 ? 0 : vorbei < 900 ? 1 : 2;
+    for (var i = 0; i < stufen.length; i++) stufen[i].className = i === stufe ? 'an' : '';
+  }
+  zeigen();
+  setInterval(function () {
+    rest = rest > 0 ? rest - 1 : 1800;
+    zeigen();
+  }, 1000);
+})();
+</script>
 </main>
 <footer class="fuss">
   <nav><a href="/support/">Support</a><a href="/nutzungsbedingungen/">Nutzungsbedingungen</a><a href="/datenschutz/">Datenschutz</a><a href="/impressum/">Impressum</a></nav>

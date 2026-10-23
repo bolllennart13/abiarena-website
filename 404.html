@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Einladung · Abi Arena</title>
 <meta name="description" content="Abi Arena: Foto-Challenges, Bestenliste und ein gemeinsames Album für eure Abi-Stufe.">
-<meta name="theme-color" content="#FF3D7F">
+<meta name="theme-color" content="#F6F1E7">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/icon.png">
 <link rel="stylesheet" href="/style.css">
@@ -13,18 +13,19 @@
 <body>
 <header class="kopf">
   <a class="marke" href="/"><img src="/icon.png" alt="" width="36" height="36">Abi Arena</a>
+  
 </header>
 <main class="einladung">
 <div id="einladung" hidden>
-  <div class="sticker" id="sticker">🎉</div>
-  <h1 id="ueberschrift">Du wurdest eingeladen!</h1>
+  <span class="etikett gelb" id="sticker">Einladung für dich!</span>
+  <h1 id="ueberschrift">Komm rein<span class="punkt">!</span></h1>
   <div class="raum" id="raum">
     <b id="raumname">Raum wird geladen …</b>
     <span id="mitglieder"></span>
   </div>
   <p>So bist du in einer Minute dabei:</p>
   <ol class="schritte" id="schritte">
-    <li><b>Abi Arena laden</b><br><span class="hinweis-klein">Bald im App Store und bei Google Play</span></li>
+    <li><b>Abi Arena laden</b><br><span class="hinweis-klein">Bald im App Store</span></li>
     <li><b>Diesen Code eingeben</b>
       <button class="code" id="code" type="button" title="Code kopieren"></button>
       <span class="hinweis-klein" id="kopiert">Antippen zum Kopieren</span>
@@ -33,7 +34,7 @@
   <a class="knopf" id="app-link" href="#">Schon installiert? In der App öffnen</a>
 </div>
 <div id="nicht-gefunden" hidden>
-  <div class="sticker">🤔</div>
+  <span class="etikett gelb">hm …</span>
   <h1>Seite nicht gefunden</h1>
   <p>Diese Seite gibt es nicht. <a href="/">Zur Startseite</a></p>
 </div>
@@ -71,7 +72,7 @@
       if (Array.isArray(daten) && daten.length) {
         name.textContent = daten[0].room_name;
         var n = daten[0].member_count;
-        mitglieder.textContent = '👥 ' + n + (n === 1 ? ' Mitglied' : ' Mitglieder');
+        mitglieder.textContent = n + (n === 1 ? ' Mitglied' : ' Mitglieder');
       } else if (daten && daten.message && daten.message.indexOf('too_many_attempts') >= 0) {
         name.textContent = 'Kurz durchatmen';
         mitglieder.textContent = 'Zu viele falsche Codes. Probier es in einer Stunde noch mal.';
@@ -80,7 +81,7 @@
         mitglieder.textContent = 'Vielleicht wurde der Code erneuert. Frag in deiner Stufe nach dem aktuellen Link.';
         document.getElementById('raum').classList.add('fehler');
         // Ohne gültigen Raum keine Anleitung zeigen, nur den Hinweis.
-        document.getElementById('sticker').textContent = '🤔';
+        document.getElementById('sticker').textContent = 'hm …';
         document.getElementById('ueberschrift').textContent = 'Hm, das hat nicht geklappt';
         document.getElementById('schritte').previousElementSibling.hidden = true;
         document.getElementById('schritte').hidden = true;
