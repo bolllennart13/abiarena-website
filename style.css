@@ -53,7 +53,9 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--orange); outli
 .held h1 { font-size: clamp(2.9rem, 7vw, 5.4rem); line-height: 0.92; letter-spacing: -0.05em; margin: 18px 0 22px; text-wrap: balance; }
 .held .untertitel { font-size: 1.25rem; font-weight: 500; line-height: 1.45; max-width: 34ch; color: var(--text); }
 .aktionen { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-top: 28px; }
-.laden { display: inline-block; padding: 14px 26px; border-radius: 999px; background: var(--text); color: var(--hintergrund); font-weight: 800; font-size: 1.05rem; }
+.laden { display: inline-block; text-decoration: none; padding: 14px 26px; border-radius: 999px; background: var(--text); color: var(--hintergrund); font-weight: 800; font-size: 1.05rem; }
+.laden.klein { display: block; width: fit-content; margin: 8px 0 4px; padding: 10px 20px; font-size: 1rem; }
+.preis .laden { margin-top: 24px; background: var(--tinte); color: var(--papier); }
 
 /* Der Blitz: dunkle Fläche in beiden Modi, wie die Blitz-Karte in der App */
 .blitz { margin: 0; background: var(--tinte); color: var(--papier); border: 2px solid var(--tinte); border-radius: 32px; padding: 22px 22px 20px; transform: rotate(1.5deg); }
